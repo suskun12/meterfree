@@ -62,9 +62,9 @@ if [[ $checkphp == *'php'* ]]; then
 killall -2 php > /dev/null 2>&1
 fi
 
-$(which sh) -c 'ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R 80:localhost:3333 serveo.net -R '$default_port2':localhost:4444 -R '$default_port1':localhost:'$lport' 2> /dev/null > sendlink ' &
-printf "\e[1;77m[\e[0m\e[1;92m+\e[0m\e[1;77m]\e[0m\e[1;92m TCP Forwarding:\e[0m\e[1;77m serveo.net:%s/\e[0m\n" $default_port1
-printf "\e[1;77m[\e[0m\e[1;92m+\e[0m\e[1;77m]\e[0m\e[1;92m TCP Forwarding:\e[0m\e[1;77m serveo.net:%s/\e[0m\n" $default_port2
+$(which sh) -c 'ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=60 -R 80:localhost:3333 serveo.net -R '$ddefault_port2':localhost:4444 -R '$ddefault_port1':localhost:'$lport' 2> /dev/null > sendlink ' &
+printf "\e[1;77m[\e[0m\e[1;92m+\e[0m\e[1;77m]\e[0m\e[1;92m TCP Forwarding:\e[0m\e[1;77m serveo.net:%s/\e[0m\n" $ddefault_port1
+printf "\e[1;77m[\e[0m\e[1;92m+\e[0m\e[1;77m]\e[0m\e[1;92m TCP Forwarding:\e[0m\e[1;77m serveo.net:%s/\e[0m\n" $ddefault_port2
 sleep 8
 send_link=$(grep -o "https://[0-9a-z]*\.serveo.net" sendlink)
 
